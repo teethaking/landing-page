@@ -21,10 +21,10 @@ export default function Home() {
 
       {/* Decorative background orbs — larger, more varied */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[100px] float" />
-        <div className="absolute top-1/4 -left-60 w-[400px] h-[400px] bg-[oklch(0.45_0.2_240_/_0.12)] rounded-full blur-[100px] float-delayed" />
-        <div className="absolute bottom-1/3 right-1/5 w-[350px] h-[350px] bg-[oklch(0.5_0.18_330_/_0.1)] rounded-full blur-[100px] float" />
-        <div className="absolute top-2/3 left-1/3 w-[300px] h-[300px] bg-primary/8 rounded-full blur-[80px] float-delayed" />
+        <div className="absolute -top-40 -right-40 w-[500px] h-[500px] bg-primary/15 rounded-full blur-[64px] float will-change-transform" />
+        <div className="absolute top-1/4 -left-60 w-[400px] h-[400px] bg-[oklch(0.45_0.2_240_/_0.12)] rounded-full blur-[64px] float-delayed will-change-transform" />
+        <div className="absolute bottom-1/3 right-1/5 w-[350px] h-[350px] bg-[oklch(0.5_0.18_330_/_0.1)] rounded-full blur-[64px] float will-change-transform" />
+        <div className="absolute top-2/3 left-1/3 w-[300px] h-[300px] bg-primary/8 rounded-full blur-[48px] float-delayed will-change-transform" />
       </div>
 
       {/* Modern Navbar */}
@@ -34,7 +34,7 @@ export default function Home() {
       <section className="container mx-auto px-4 pt-8 md:pt-16 pb-20 md:pb-28 relative z-10 section-glow">
         <div className="mx-auto max-w-[90%] text-center">
           {/* Badge — glassmorphic with inner glow */}
-          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.08] backdrop-blur-xl px-5 py-2 text-sm text-foreground shadow-lg shadow-primary/5">
+          <div className="mb-8 inline-flex items-center gap-2 rounded-full border border-primary/25 bg-primary/[0.08] backdrop-blur-md px-5 py-2 text-sm text-foreground shadow-lg shadow-primary/5">
             <span className="relative flex h-2 w-2">
               <span className="absolute inline-flex h-full w-full animate-ping rounded-full bg-primary opacity-75"></span>
               <span className="relative inline-flex h-2 w-2 rounded-full bg-primary"></span>
@@ -79,7 +79,7 @@ export default function Home() {
 
         {/* Hero Visual — with radial glow underneath to make it "float" */}
         <div className="mx-auto mt-20 max-w-4xl relative">
-          <div className="absolute -inset-10 bg-primary/[0.07] rounded-[40px] blur-[60px] pointer-events-none" />
+          <div className="absolute -inset-10 bg-primary/[0.07] rounded-[40px] blur-[40px] pointer-events-none" />
           <div className="relative">
             <HeroDemo />
           </div>
@@ -108,7 +108,7 @@ export default function Home() {
 
         <div className="grid gap-4 md:grid-cols-3 lg:gap-5">
           {/* Hero card — AI Understanding, spans 2 cols × 2 rows */}
-          <Card className="glass-card gradient-border border-0 p-8 md:col-span-2 md:row-span-2 flex flex-col justify-between rounded-3xl group hover:shadow-2xl transition-all duration-500 relative overflow-hidden">
+          <Card className="glass-card gradient-border border-0 p-8 md:col-span-2 md:row-span-2 flex flex-col justify-between rounded-3xl group hover:shadow-2xl transition-all duration-500 will-change-transform relative overflow-hidden">
             <div className="absolute inset-0 gradient-mesh opacity-40 pointer-events-none" />
             <div className="relative z-10">
               <div className="mb-6 flex h-14 w-14 items-center justify-center rounded-2xl icon-gradient border border-primary/20 group-hover:scale-110 group-hover:glow-sm transition-all duration-300">
@@ -154,7 +154,7 @@ export default function Home() {
           </Card>
 
           {/* Right top — Stellar-Powered Speed, cyan accent */}
-          <Card className="glass-card gradient-border border-0 p-6 rounded-3xl group hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+          <Card className="glass-card gradient-border border-0 p-6 rounded-3xl group hover:shadow-xl hover:shadow-cyan-500/5 hover:-translate-y-1 transition-all duration-300 will-change-transform relative overflow-hidden">
             <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-cyan-500/0 via-cyan-500 to-cyan-500/0" />
             <div>
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl icon-gradient border border-primary/20 group-hover:scale-110 transition-transform duration-300">
@@ -171,7 +171,7 @@ export default function Home() {
           </Card>
 
           {/* Right bottom — End-to-End Protection, green accent */}
-          <Card className="glass-card gradient-border border-0 p-6 rounded-3xl group hover:shadow-xl hover:shadow-green-500/5 hover:-translate-y-1 transition-all duration-300 relative overflow-hidden">
+          <Card className="glass-card gradient-border border-0 p-6 rounded-3xl group hover:shadow-xl hover:shadow-green-500/5 hover:-translate-y-1 transition-all duration-300 will-change-transform relative overflow-hidden">
             <div className="absolute top-0 inset-x-0 h-[2px] bg-gradient-to-r from-green-500/0 via-green-500 to-green-500/0" />
             <div>
               <div className="mb-4 flex h-11 w-11 items-center justify-center rounded-xl icon-gradient border border-primary/20 group-hover:scale-110 transition-transform duration-300">
@@ -386,6 +386,7 @@ export default function Home() {
                   width={40}
                   height={40}
                   className="rounded-lg"
+                  loading="lazy"
                 />
                 <span className="text-base font-bold tracking-tight">
                   IntMoney

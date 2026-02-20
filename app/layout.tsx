@@ -6,11 +6,13 @@ import "./globals.css";
 
 const geist = Geist({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-geist",
 });
-const _geistMono = Geist_Mono({ subsets: ["latin"] });
+const _geistMono = Geist_Mono({ subsets: ["latin"], display: "swap" });
 const inter = Inter({
   subsets: ["latin"],
+  display: "swap",
   variable: "--font-inter",
 });
 

@@ -178,7 +178,7 @@ export function HeroDemo() {
         isFading ? "opacity-0" : "opacity-100"
       )}
     >
-      <Card className="overflow-hidden border border-border/50 rounded-2xl bg-card shadow-2xl shadow-primary/10">
+      <Card className="overflow-hidden border border-border/50 rounded-2xl bg-card shadow-xl shadow-primary/5">
         {/* Terminal-style top bar */}
         <div className="flex items-center justify-between px-5 py-3.5 bg-background border-b border-border/50">
           <div className="flex items-center gap-3">
@@ -214,7 +214,7 @@ export function HeroDemo() {
           <div
             className={cn(
               "rounded-xl border border-border/50 bg-muted/20 p-4 transition-all duration-300 shrink-0",
-              showInput && phase !== "idle"
+              showInput
                 ? "border-primary/30 bg-primary/[0.03]"
                 : ""
             )}
