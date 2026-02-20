@@ -61,8 +61,8 @@ export function Navbar() {
             className={cn(
               "relative flex items-center gap-2 rounded-full border px-2 py-2 transition-all duration-500",
               isScrolled
-                ? "border-border/50 bg-background/80 backdrop-blur-2xl shadow-lg shadow-black/20 shadow-[0_4px_30px_oklch(0.55_0.25_290_/_0.05)]"
-                : "border-border/30 bg-background/50 backdrop-blur-xl",
+                ? "border-border/50 bg-background/80 backdrop-blur-lg shadow-lg shadow-black/20 shadow-[0_4px_30px_oklch(0.55_0.25_290_/_0.05)]"
+                : "border-border/30 bg-background/50 backdrop-blur-md",
             )}
           >
             {/* Logo */}
@@ -158,7 +158,7 @@ export function Navbar() {
       {/* Mobile Menu Overlay */}
       <div
         className={cn(
-          "fixed inset-0 z-40 bg-background/90 backdrop-blur-2xl transition-all duration-500 md:hidden",
+          "fixed inset-0 z-40 bg-background/90 backdrop-blur-lg transition-all duration-500 md:hidden",
           isMobileMenuOpen
             ? "opacity-100 pointer-events-auto"
             : "opacity-0 pointer-events-none",
