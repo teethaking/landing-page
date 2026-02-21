@@ -1,6 +1,6 @@
 import type React from "react";
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Inter } from "next/font/google";
+import { Geist, Inter } from "next/font/google";
 import { Analytics } from "@vercel/analytics/next";
 import { ThemeProvider } from "@/components/theme-provider";
 import "./globals.css";
@@ -10,7 +10,7 @@ const geist = Geist({
   display: "swap",
   variable: "--font-geist",
 });
-const _geistMono = Geist_Mono({ subsets: ["latin"], display: "swap" });
+
 const inter = Inter({
   subsets: ["latin"],
   display: "swap",

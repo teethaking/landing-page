@@ -412,6 +412,7 @@ All commits must follow the [Conventional Commits](https://www.conventionalcommi
 **Types**: `feat`, `fix`, `docs`, `style`, `refactor`, `test`, `chore`, `perf`, `ci`
 
 **Examples**:
+
 - `feat(waitlist): add email validation to waitlist modal`
 - `fix(navbar): resolve mobile menu focus trap`
 - `refactor(atoms): extract SectionBadge from inline JSX`

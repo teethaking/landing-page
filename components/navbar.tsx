@@ -2,10 +2,10 @@
 
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
+import { useActiveSection } from "@/hooks/use-active-section";
 import { Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
-import { useActiveSection } from "@/hooks/use-active-section";
 
 const NAV_LINKS = [
   { href: "#features", label: "Features" },
@@ -17,7 +17,7 @@ export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [hoveredLink, setHoveredLink] = useState("");
-  const activeSection = useActiveSection();
+  const activeSection = useActiveSection(["features", "how-it-works", "ecosystem"]);
 
   // Handle scroll effect
   useEffect(() => {
@@ -81,7 +81,7 @@ export function Navbar() {
             <div className="hidden md:flex items-center">
               <div className="flex items-center gap-1">
                 {NAV_LINKS.map((link) => {
-                  const isActive = activeSection === link.href.replace("#", "");
+                  const isActive = activeSection === link.href.substring(1);
                   const isHovered = hoveredLink === link.href;
                   return (
                     <a
@@ -104,7 +104,7 @@ export function Navbar() {
                             ? "bg-primary/15 opacity-100 scale-100"
                             : isHovered
                               ? "bg-muted/80 opacity-100 scale-100"
-                              : "opacity-0 scale-95",
+                              : "opacity-0 scale-95"
                         )}
                       />
                       {/* Active indicator underline */}
@@ -184,7 +184,7 @@ export function Navbar() {
           {/* Mobile Nav Links */}
           <nav className="flex flex-col items-center gap-6">
             {NAV_LINKS.map((link, index) => {
-              const isActive = activeSection === link.href;
+              const isActive = activeSection === link.href.substring(1);
 
               return (
                 <a
@@ -193,9 +193,7 @@ export function Navbar() {
                   onClick={() => setIsMobileMenuOpen(false)}
                   className={cn(
                     "group relative text-3xl font-bold transition-all duration-300",
-                    isActive
-                      ? "text-primary"
-                      : "text-foreground hover:text-primary"
+                    isActive ? "text-primary" : "text-foreground hover:text-primary"
                   )}
                   style={{ transitionDelay: `${(index + 1) * 75}ms` }}
                 >
