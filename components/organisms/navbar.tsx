@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
-import { Button } from "@/components/ui/button";
+import { Button } from "@/components/atoms/button";
 import { useActiveSection } from "@/hooks/use-active-section";
 import { Menu, X, ChevronRight } from "lucide-react";
 import Image from "next/image";
@@ -20,7 +20,6 @@ export function Navbar() {
   const [hoveredLink, setHoveredLink] = useState("");
   const activeSection = useActiveSection(["features", "how-it-works", "ecosystem"]);
 
-  // Handle scroll effect
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -29,7 +28,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth >= 768) {
@@ -40,7 +38,6 @@ export function Navbar() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  // Lock body scroll when mobile menu is open
   useEffect(() => {
     if (isMobileMenuOpen) {
       document.body.style.overflow = "hidden";
@@ -69,16 +66,13 @@ export function Navbar() {
                 : "border-border/30 bg-background/50 backdrop-blur-xl"
             )}
           >
-            {/* Logo */}
             <a href="#" className="flex items-center gap-2 group pl-2 pr-3">
               <Image src="/icon.svg" alt="IntMoney" width={36} height={36} className="rounded-lg" />
               <span className="text-base font-bold tracking-tight hidden sm:inline">IntMoney</span>
             </a>
 
-            {/* Separator */}
             <div className="hidden md:block w-px h-6 bg-border/50" />
 
-            {/* Desktop Navigation */}
             <div className="hidden md:flex items-center">
               <div className="flex items-center gap-1">
                 {NAV_LINKS.map((link) => {
@@ -97,7 +91,6 @@ export function Navbar() {
                           : "text-muted-foreground hover:text-foreground"
                       )}
                     >
-                      {/* Active/Hover background */}
                       <span
                         className={cn(
                           "absolute inset-0 rounded-full transition-all duration-300",
@@ -108,7 +101,6 @@ export function Navbar() {
                               : "opacity-0 scale-95"
                         )}
                       />
-                      {/* Active indicator underline */}
                       {isActive && !isHovered && (
                         <span className="absolute bottom-1 left-1/2 -translate-x-1/2 h-0.5 w-6 bg-primary rounded-full transition-all duration-300" />
                       )}
@@ -119,18 +111,14 @@ export function Navbar() {
               </div>
             </div>
 
-            {/* Separator */}
             <div className="hidden md:block w-px h-6 bg-border/50" />
 
-            {/* Theme Toggle - Desktop */}
             <div className="hidden md:flex items-center pl-1">
               <ThemeToggle />
             </div>
 
-            {/* Separator */}
             <div className="hidden md:block w-px h-6 bg-border/50" />
 
-            {/* Desktop CTA */}
             <div className="hidden md:flex items-center pl-1 pr-1">
               <Button
                 variant="default"
@@ -141,7 +129,6 @@ export function Navbar() {
               </Button>
             </div>
 
-            {/* Mobile Menu Button */}
             <button
               onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
               className="relative md:hidden flex h-9 w-9 items-center justify-center rounded-full bg-muted/80 transition-all duration-300 hover:bg-muted ml-1"
@@ -151,17 +138,13 @@ export function Navbar() {
               <Menu
                 className={cn(
                   "h-4 w-4 absolute transition-all duration-300",
-                  isMobileMenuOpen
-                    ? "opacity-0 rotate-90 scale-0"
-                    : "opacity-100 rotate-0 scale-100"
+                  isMobileMenuOpen ? "opacity-0 rotate-90 scale-0" : "opacity-100 rotate-0 scale-100"
                 )}
               />
               <X
                 className={cn(
                   "h-4 w-4 absolute transition-all duration-300",
-                  isMobileMenuOpen
-                    ? "opacity-100 rotate-0 scale-100"
-                    : "opacity-0 -rotate-90 scale-0"
+                  isMobileMenuOpen ? "opacity-100 rotate-0 scale-100" : "opacity-0 -rotate-90 scale-0"
                 )}
               />
             </button>
@@ -169,7 +152,6 @@ export function Navbar() {
         </div>
       </header>
 
-      {/* Mobile Menu Overlay */}
       <div
         className={cn(
           "fixed inset-0 z-40 bg-background/90 backdrop-blur-2xl transition-all duration-500 md:hidden",
@@ -182,11 +164,9 @@ export function Navbar() {
             isMobileMenuOpen ? "opacity-100 translate-y-0" : "opacity-0 -translate-y-8"
           )}
         >
-          {/* Mobile Nav Links */}
           <nav className="flex flex-col items-center gap-6">
             {NAV_LINKS.map((link, index) => {
               const isActive = activeSection === link.href.substring(1);
-
               return (
                 <a
                   key={link.href}
@@ -200,7 +180,6 @@ export function Navbar() {
                 >
                   <span className="relative">
                     {link.label}
-                    {/* Underline effect */}
                     <span
                       className={cn(
                         "absolute -bottom-2 left-0 h-1 bg-primary rounded-full transition-all duration-300",
@@ -213,12 +192,10 @@ export function Navbar() {
             })}
           </nav>
 
-          {/* Theme Toggle - Mobile */}
           <div className="mt-2">
             <ThemeToggle />
           </div>
 
-          {/* Mobile CTA */}
           <Button
             size="lg"
             className="rounded-full px-10 py-6 text-lg shadow-lg hover:shadow-xl hover:scale-105 transition-all duration-300 mt-4"
@@ -228,14 +205,13 @@ export function Navbar() {
             <ChevronRight className="ml-2 h-5 w-5" />
           </Button>
 
-          {/* Decorative elements */}
           <div className="absolute top-1/4 left-1/4 w-64 h-64 bg-primary/10 rounded-full blur-3xl -z-10" />
           <div className="absolute bottom-1/4 right-1/4 w-48 h-48 bg-primary/5 rounded-full blur-3xl -z-10" />
         </div>
       </div>
 
-      {/* Spacer for fixed header */}
       <div className="h-20" />
     </>
   );
 }
+
